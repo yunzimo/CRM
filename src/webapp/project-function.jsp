@@ -105,9 +105,7 @@
             <td align="center"><a href=''><u>${fun.module.analysis.title}</u></a></td>
             <td align="center"><a href=''><u>${fun.module.analysis.project.pname}</u></a></td>
             <td>
-                <c:if test="${fun.module.analysis.project.level==1}">紧急</c:if>
-                <c:if test="${fun.module.analysis.project.level==2}">一般</c:if>
-                <c:if test="${fun.module.analysis.project.level==3}">暂缓</c:if>
+                ${fun.level}
             </td>
             <td>
                 <fmt:formatDate value="${fun.module.analysis.addtime}" pattern="yyyy-MM-dd"/>
@@ -115,7 +113,7 @@
             <td>
                 <fmt:formatDate value="${fun.module.analysis.updatetime}" pattern="yyyy-MM-dd"/>
             </td>
-            <td><a href="../project-function-edit.jsp">编辑</a> | <a href="../project-function-look.jsp">查看详情</a></td>
+            <td><a href="../project-function-edit.jsp?id="${fun.id}>编辑</a> | <a href="../project-function-look.jsp">查看详情</a></td>
         </tr>
     </c:forEach>
 

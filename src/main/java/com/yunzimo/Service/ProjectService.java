@@ -10,4 +10,5 @@ public interface ProjectService {
     public boolean addProject(Project project);
     public Project QueryByPid(int pid);
     public boolean projectEdit(Project project);
+    public List<Project> showProWithModule();
 }

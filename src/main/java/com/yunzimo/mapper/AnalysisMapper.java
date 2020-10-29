@@ -9,4 +9,5 @@ import java.util.List;
 public interface AnalysisMapper {
     public List<Analysis> QueryByKey(Key key);
     public Analysis QueryById(int id);
+    public Analysis QueryByIdNoPro(int id);
 }

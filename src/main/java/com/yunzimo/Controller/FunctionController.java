@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -26,5 +27,28 @@ public class FunctionController {
         PageInfo<Function> pageInfo=new PageInfo<>(functions);
         model.addAttribute("pageInfo",pageInfo);
         return "forward:../project-function.jsp";
+    }
+
+    @RequestMapping("checkName")
+    @ResponseBody
+    public boolean checkName(int modeleFk,String functionname){
+
+        System.out.println("============进入controller");
+        Function function=new Function();
+        function.setFunctionname(functionname);
+        function.setModeleFk(modeleFk);
+        boolean b = functionService.CheckName(function);
+        return b;
+    }
+
+    @RequestMapping("addFunction")
+    public String addFunction(Function function){
+        boolean b = functionService.insertFunction(function);
+        if(b){
+            System.out.println("功能插入成功");
+        }else{
+            System.out.println("功能插入失败");
+        }
+        return "redirect:showAllInfo";
     }
 }

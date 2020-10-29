@@ -17,4 +17,15 @@
   <select id="QueryAll" resultMap="BaseResultMap">
     select * from function
   </select>
+
+  <select id="checkName" resultMap="BaseResultMap">
+    select * from function where functionname=#{functionname} and modele_fk=#{modeleFk}
+  </select>
+
+  <insert id="insertFunction">
+    insert into function
+    (modele_fk, functionname, level, simpledis, detaileddis, remark)
+    value
+    (#{modeleFk},#{functionname},#{level},#{simpledis},#{detaileddis},#{remark})
+  </insert>
 </mapper>

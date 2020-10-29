@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -59,5 +60,13 @@ public class ProjectController {
             System.out.println("修改失败");
         }
         return "redirect:/pro/showAllInfo";
+    }
+
+    @RequestMapping("showProWithModule")
+    @ResponseBody
+    public List<Project> showProWithModule(){
+        List<Project> projects = projectService.showProWithModule();
+        System.out.println("Ajax获得的带有模块的项目信息========="+projects);
+        return projects;
     }
 }

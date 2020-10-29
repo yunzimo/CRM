@@ -11,4 +11,5 @@ public interface ProjectMapper {
     public int addProject(Project project);
     public Project QueryByPid(int pid);
     public int projectEdit(Project project);
+    public List<Project> showProWithModule();
 }

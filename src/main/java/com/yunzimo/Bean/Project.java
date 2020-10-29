@@ -1,7 +1,9 @@
 package com.yunzimo.Bean;
 
 
+import javax.jws.WebParam;
 import java.util.Date;
+import java.util.List;
 
 public class Project {
 
@@ -19,6 +21,24 @@ public class Project {
   private int empFk;
   private Customer customer;
   private Employee employee;
+  private Analysis analysis;
+  private List<Module> modules;
+
+  public Analysis getAnalysis() {
+    return analysis;
+  }
+
+  public void setAnalysis(Analysis analysis) {
+    this.analysis = analysis;
+  }
+
+  public List<Module> getModules() {
+    return modules;
+  }
+
+  public void setModules(List<Module> modules) {
+    this.modules = modules;
+  }
 
   public Customer getCustomer() {
     return customer;
@@ -160,6 +180,8 @@ public class Project {
             ", empFk=" + empFk +
             ", customer=" + customer +
             ", employee=" + employee +
+            ", analysis=" + analysis +
+            ", modules=" + modules +
             '}';
   }
 }

@@ -37,4 +37,8 @@
     select * from analysis where id=#{id}
   </select>
 
+  <select id="QueryByIdNoPro" resultMap="BaseResultMap">
+    select * from analysis where id=#{id}
+  </select>
+
 </mapper>

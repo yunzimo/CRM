@@ -37,4 +37,11 @@ public class ProjectServiceImp implements ProjectService{
         int i = projectMapper.projectEdit(project);
         return i>0;
     }
+
+    @Override
+    public List<Project> showProWithModule() {
+        List<Project> projects = projectMapper.showProWithModule();
+
+        return projects;
+    }
 }

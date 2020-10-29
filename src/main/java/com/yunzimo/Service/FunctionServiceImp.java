@@ -27,4 +27,17 @@ public class FunctionServiceImp implements FunctionService{
         }
         return functions;
     }
+
+    @Override
+    public boolean CheckName(Function function) {
+        Function function1 = functionMapper.checkName(function);
+        System.out.println("function=========="+function1);
+        return function1==null;
+    }
+
+    @Override
+    public boolean insertFunction(Function function) {
+        int i = functionMapper.insertFunction(function);
+        return i>0;
+    }
 }

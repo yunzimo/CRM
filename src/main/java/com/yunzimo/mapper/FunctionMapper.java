@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface FunctionMapper {
     public List<Function> QueryAll();
+    public Function checkName(Function function);
+    public int insertFunction(Function function);
 }

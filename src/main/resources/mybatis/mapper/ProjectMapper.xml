@@ -57,4 +57,14 @@
                        buildtime=#{buildtime},cost=#{cost},level=#{level},endtime=#{endtime},remark=#{remark},emp_fk=#{empFk}
                        where pid=#{pid}
   </update>
+
+  <resultMap id="ProWithModule" type="project" extends="BaseResultMap">
+    <association property="analysis" javaType="analysis" column="pid" select="com.yunzimo.mapper.AnalysisMapper.QueryByIdNoPro"/>
+    <collection property="modules" ofType="module" column="pid" select="com.yunzimo.mapper.ModuleMapper.QueryByAnalysisFk"/>
+  </resultMap>
+
+  <select id="showProWithModule" resultMap="ProWithModule">
+    select * from project
+    where pid in(select analysis_fk from module)
+  </select>
 </mapper>
