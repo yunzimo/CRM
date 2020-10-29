@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yunzimo.mapper.AnalysisMapper" >
+  <resultMap id="BaseResultMap" type="com.yunzimo.Bean.Analysis" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="proname" property="proname" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="simpledis" property="simpledis" jdbcType="VARCHAR" />
+    <result column="detaileddis" property="detaileddis" jdbcType="VARCHAR" />
+    <result column="addtime" property="addtime" jdbcType="DATE" />
+    <result column="updatetime" property="updatetime" jdbcType="DATE" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <resultMap id="ResultAboutPro" type="analysis" extends="BaseResultMap">
+    <association property="project" javaType="project" column="id" select="com.yunzimo.mapper.ProjectMapper.QueryByPid"/>
+  </resultMap>
+
+
+  <select id="QueryByKey" resultMap="ResultAboutPro">
+    select * from analysis
+    <where>
+      <if test="cid==2">
+        and proname like concat('%',concat(#{keyword},'%'))
+      </if>
+      <if test="cid==1">
+        and id in (select pid from project where pname like concat('%',concat(#{keyword},'%')))
+      </if>
+
+    </where>
+    <if test='orderby!="0" and orderby!=null'>
+      order by #{orderby}
+    </if>
+  </select>
+
+  <select id="QueryById" resultMap="ResultAboutPro">
+    select * from analysis where id=#{id}
+  </select>
+
+</mapper>

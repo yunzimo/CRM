@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yunzimo.mapper.CustomerMapper" >
+  <resultMap id="BaseResultMap" type="com.yunzimo.Bean.Customer" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="comname" property="comname" jdbcType="VARCHAR" />
+    <result column="companyperson" property="companyperson" jdbcType="VARCHAR" />
+    <result column="comaddress" property="comaddress" jdbcType="VARCHAR" />
+    <result column="comphone" property="comphone" jdbcType="VARCHAR" />
+    <result column="camera" property="camera" jdbcType="VARCHAR" />
+    <result column="present" property="present" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="addtime" property="addtime" jdbcType="DATE" />
+  </resultMap>
+
+  <select id="showAllCustomers" resultMap="BaseResultMap">
+    select * from customer
+  </select>
+
+  <select id="QueryById" resultMap="BaseResultMap">
+    select * from customer where id=#{id}
+  </select>
+
+  <update id="updateCustomer" parameterType="customer">
+    update customer set comname=#{comname},companyperson=#{companyperson},comaddress=#{comaddress},
+                        comphone=#{comphone},camera=#{camera},present=#{present},remark=#{remark}
+    where id=#{id}
+  </update>
+
+  <insert id="addCustomer" parameterType="customer">
+
+insert into customer (comname, companyperson, comaddress, comphone, camera, present, remark, addtime)
+value (#{comname}, #{companyperson}, #{comaddress}, #{comphone}, #{camera}, #{present}, #{remark}, #{addtime})
+
+  </insert>
+
+  <select id="QueryByKey" resultMap="BaseResultMap">
+    select  * from customer
+    <where>
+      <if test='cid!=null and cid!="0"'>
+        and ${cid} like concat('%',concat(#{keyword},'%'))
+      </if>
+    </where>
+    <if test='orderby!="0" and orderby!=null'>
+      order by #{orderby}
+    </if>
+
+  </select>
+</mapper>

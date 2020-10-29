@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yunzimo.mapper.ProjectMapper" >
+  <resultMap id="BaseResultMap" type="com.yunzimo.Bean.Project" >
+    <id column="pid" property="pid" jdbcType="INTEGER" />
+    <result column="pname" property="pname" jdbcType="VARCHAR" />
+    <result column="comname" property="comname" jdbcType="INTEGER" />
+    <result column="emp_fk1" property="empFk1" jdbcType="INTEGER" />
+    <result column="empcount" property="empcount" jdbcType="INTEGER" />
+    <result column="starttime" property="starttime" jdbcType="DATE" />
+    <result column="buildtime" property="buildtime" jdbcType="DATE" />
+    <result column="cost" property="cost" jdbcType="INTEGER" />
+    <result column="level" property="level" jdbcType="VARCHAR" />
+    <result column="endtime" property="endtime" jdbcType="DATE" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="emp_fk" property="empFk" jdbcType="INTEGER" />
+  </resultMap>
+  
+  <resultMap id="AllProperty" type="project">
+    <association property="employee" javaType="employee" column="emp_fk"
+                  select="com.yunzimo.mapper.EmployeeMapper.QueryById"/>
+
+    <association property="customer" javaType="customer" column="comname"
+                 select="com.yunzimo.mapper.CustomerMapper.QueryById"/>
+  </resultMap>
+
+
+  <select id="QueryByKey" resultMap="AllProperty">
+    select * from project
+    <where>
+      <if test="cid==1">
+        and pname like concat('%',concat(#{keyword},'%'))
+      </if>
+    <if test="cid==2">
+      and emp_fk in (select eid from employee where ename like concat('%',concat(#{keyword},'%')))
+    </if>
+
+    </where>
+
+
+    <if test='orderby!="0" and orderby!=null'>
+      order by #{orderby}
+    </if>
+  </select>
+
+  <insert id="addProject">
+    insert into project (pname, comname, empcount, starttime, buildtime, cost, level, endtime, remark, emp_fk)
+    value (#{pname}, #{comname}, #{empcount}, #{starttime}, #{buildtime}, #{cost}, #{level}, #{endtime}, #{remark}, #{empFk})
+  </insert>
+
+  <select id="QueryByPid" resultMap="AllProperty">
+        select * from project where pid=#{pid}
+  </select>
+
+  <update id="projectEdit">
+    update project set pname=#{pname},comname=#{comname},empcount=#{empcount},starttime=#{starttime},
+                       buildtime=#{buildtime},cost=#{cost},level=#{level},endtime=#{endtime},remark=#{remark},emp_fk=#{empFk}
+                       where pid=#{pid}
+  </update>
+</mapper>
