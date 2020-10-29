@@ -8,4 +8,6 @@ public interface FunctionService {
     public List<Function> QueryAll();
     public boolean CheckName(Function function);
     public boolean insertFunction(Function function);
+    public Function QueryById(int id);
+    public boolean editFunction(Function function);
 }

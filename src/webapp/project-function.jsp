@@ -113,7 +113,7 @@
             <td>
                 <fmt:formatDate value="${fun.module.analysis.updatetime}" pattern="yyyy-MM-dd"/>
             </td>
-            <td><a href="../project-function-edit.jsp?id="${fun.id}>编辑</a> | <a href="../project-function-look.jsp">查看详情</a></td>
+            <td><a href="../project-function-edit.jsp?id=${fun.id}">编辑</a> | <a href="../project-function-look.jsp">查看详情</a></td>
         </tr>
     </c:forEach>
 

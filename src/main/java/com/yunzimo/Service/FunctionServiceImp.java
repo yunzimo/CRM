@@ -40,4 +40,17 @@ public class FunctionServiceImp implements FunctionService{
         int i = functionMapper.insertFunction(function);
         return i>0;
     }
+
+    @Override
+    public Function QueryById(int id) {
+        Function function = functionMapper.QueryById(id);
+        function.setModule(moduleMapper.QueryById(function.getModeleFk()));
+        return function;
+    }
+
+    @Override
+    public boolean editFunction(Function function) {
+        int i = functionMapper.editFunction(function);
+        return i>0;
+    }
 }

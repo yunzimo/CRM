@@ -28,4 +28,14 @@
     value
     (#{modeleFk},#{functionname},#{level},#{simpledis},#{detaileddis},#{remark})
   </insert>
+
+  <select id="QueryById" resultMap="BaseResultMap">
+    select * from function where id=#{id}
+  </select>
+
+  <update id="editFunction">
+    update function set modele_fk=#{modeleFk},functionname=#{functionname},level=#{level},
+                        simpledis=#{simpledis},detaileddis=#{detaileddis},remark=#{remark}
+        where id=#{id}
+  </update>
 </mapper>

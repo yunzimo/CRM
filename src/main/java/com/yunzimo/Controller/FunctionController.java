@@ -51,4 +51,23 @@ public class FunctionController {
         }
         return "redirect:showAllInfo";
     }
+
+    @RequestMapping("QueryById")
+    @ResponseBody
+    public Function QueryById(int id){
+        Function function = functionService.QueryById(id);
+        System.out.println("通过ajax和id查到的function为===="+function);
+        return function;
+    }
+
+    @RequestMapping("editFunction")
+    public String editFunction(Function function){
+        boolean b = functionService.editFunction(function);
+        if(b){
+            System.out.println("修改成功");
+        }else{
+            System.out.println("修改失败");
+        }
+        return "redirect:showAllInfo";
+    }
 }

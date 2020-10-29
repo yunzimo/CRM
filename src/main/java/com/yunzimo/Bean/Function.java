@@ -12,8 +12,25 @@ public class Function {
   private String simpledis;
   private String detaileddis;
   private String remark;
-
+  private Project project;
+  private Analysis analysis;
   private Module module;
+
+  public Analysis getAnalysis() {
+    return analysis;
+  }
+
+  public void setAnalysis(Analysis analysis) {
+    this.analysis = analysis;
+  }
+
+  public Project getProject() {
+    return project;
+  }
+
+  public void setProject(Project project) {
+    this.project = project;
+  }
 
   public Module getModule() {
     return module;
