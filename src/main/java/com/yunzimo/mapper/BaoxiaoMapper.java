@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface BaoxiaoMapper {
     public List<Baoxiao> QueryByEmpFk(int empFk);
+    public List<Baoxiao> getAllBaoXiao();
 }

@@ -114,4 +114,15 @@
   select *
   from baoxiao where emp_fk=#{empFk};
 </select>
+  
+  
+  <resultMap id="AllAboutEmpExpend" type="baoxiao" extends="BaseResultMap">
+    <association property="expendituretype" javaType="expendituretype" column="paymode" select="com.yunzimo.mapper.ExpendituretypeMapper.selectByPrimaryKey"/>
+    <association property="employee" javaType="employee" column="emp_fk" select="com.yunzimo.mapper.EmployeeMapper.QueryById"/>
+  </resultMap>
+  
+  <select id="getAllBaoXiao" resultMap="AllAboutEmpExpend">
+    select *
+    from baoxiao;
+  </select>
 </mapper>

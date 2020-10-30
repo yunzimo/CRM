@@ -13,7 +13,7 @@
         $(function () {
             $.ajax({
                 type:'GET',
-                url:'${pageContext.request.contextPath}/usual/getAllBaoXiao',
+                url:'${pageContext.request.contextPath}/Bao/getAllBaoXiao',
                 dataType:'json',
                 success:function(rs){
                     $(rs).each(function(index,item){

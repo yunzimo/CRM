@@ -13,7 +13,24 @@ public class Baoxiao {
   private int bxstatus;
   private int empFk;
   private String result;
+  private Employee employee;
+  private Expendituretype expendituretype;
 
+  public Employee getEmployee() {
+    return employee;
+  }
+
+  public void setEmployee(Employee employee) {
+    this.employee = employee;
+  }
+
+  public Expendituretype getExpendituretype() {
+    return expendituretype;
+  }
+
+  public void setExpendituretype(Expendituretype expendituretype) {
+    this.expendituretype = expendituretype;
+  }
 
   public String getBxid() {
     return bxid;
