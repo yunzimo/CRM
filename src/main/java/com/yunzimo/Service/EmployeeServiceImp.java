@@ -18,4 +18,10 @@ public class EmployeeServiceImp implements EmployeeService{
         List<Employee> employees = employeeMapper.showAllEmp();
         return employees;
     }
+
+    @Override
+    public Employee getBaoxiaoByeid(int eid) {
+        Employee baoxiaoByeid = employeeMapper.getBaoxiaoByeid(eid);
+        return baoxiaoByeid;
+    }
 }

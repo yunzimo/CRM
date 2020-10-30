@@ -24,4 +24,14 @@ public class EmployeeController {
         System.out.println("ajax请求获得的所有项目经理"+employees);
         return  employees;
     }
+
+    @RequestMapping("getBaoxiaoByeid")
+    @ResponseBody
+    public Employee getBaoxiaoByeid(){
+        Employee baoxiaoByeid = employeeService.getBaoxiaoByeid(1);
+        System.out.println("ajax获得的id为1的包含报销信息的员工数据"+baoxiaoByeid);
+        return baoxiaoByeid;
+    }
+
+
 }

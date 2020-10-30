@@ -2,6 +2,7 @@ package com.yunzimo.Bean;
 
 
 import java.util.Date;
+import java.util.List;
 
 public class Employee {
 
@@ -20,6 +21,39 @@ public class Employee {
   private int lFk;
   private String emppic;
 
+  private List<Baoxiao> baoxiaoList;
+
+  public int getdFk() {
+    return dFk;
+  }
+
+  public void setdFk(int dFk) {
+    this.dFk = dFk;
+  }
+
+  public int getlFk() {
+    return lFk;
+  }
+
+  public void setlFk(int lFk) {
+    this.lFk = lFk;
+  }
+
+  public List<Baoxiao> getBaoxiaoList() {
+    return baoxiaoList;
+  }
+
+  public void setBaoxiaoList(List<Baoxiao> baoxiaoList) {
+    this.baoxiaoList = baoxiaoList;
+  }
+
+  public int getpFk() {
+    return pFk;
+  }
+
+  public void setpFk(int pFk) {
+    this.pFk = pFk;
+  }
 
   public int getEid() {
     return eid;

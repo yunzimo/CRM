@@ -18,6 +18,10 @@
     <result column="emppic" property="emppic" jdbcType="VARCHAR" />
   </resultMap>
 
+  <resultMap id="EmpAboutBaoxiao" type="employee" extends="BaseResultMap">
+    <collection property="baoxiaoList" column="eid" ofType="baoxiao" select="com.yunzimo.mapper.BaoxiaoMapper.QueryByEmpFk"/>
+  </resultMap>
+
   <select id="QueryById" resultMap="BaseResultMap">
     select * from employee where eid=#{eid}
   </select>
@@ -25,4 +29,11 @@
   <select id="showAllEmp" resultMap="BaseResultMap">
     select * from employee
   </select>
+
+  <select id="getBaoxiaoByeid" resultMap="EmpAboutBaoxiao">
+    select *
+    from employee where eid=#{eid};
+  </select>
+
+
 </mapper>
