@@ -42,7 +42,7 @@
 <li><a href='task-add.jsp' target='main'>创建任务</a> </li>
 <li><a href='task.jsp' target='main'>任务信息</a> </li>
 <li><a href='task-my.jsp' target='main'>我的任务</a> </li>
-<li><a href='message-seed.jsp' target='main'>通知公告</a></li>
+<li><a href='notice-send.jsp' target='main'>通知公告</a></li>
 <li><a href='message.jsp' target='main'>档案管理</a> </li>
 <li><a href='message-give.jsp' target='main'>消息推送</a> </li>
 <li><a href='message-give.jsp' target='main'>报销管理</a> </li>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yunzimo.mapper.NoticeMapper" >
+  <resultMap id="BaseResultMap" type="com.yunzimo.Bean.Notice" >
+    <id column="nid" property="nid" jdbcType="INTEGER" />
+    <result column="ntitle" property="ntitle" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="ndate" property="ndate" jdbcType="DATE" />
+    <result column="emp_fk" property="empFk" jdbcType="INTEGER" />
+  </resultMap>
+
+
+
+  <insert id="insert" parameterType="com.yunzimo.Bean.Notice" >
+    insert into notice (nid, ntitle, remark, 
+      ndate, emp_fk)
+    values (#{nid,jdbcType=INTEGER}, #{ntitle,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{ndate,jdbcType=DATE}, #{empFk,jdbcType=INTEGER})
+  </insert>
+
+
+  <insert id="insertSelective" parameterType="com.yunzimo.Bean.Notice" >
+    insert into notice
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="nid != null" >
+        nid,
+      </if>
+      <if test="ntitle != null" >
+        ntitle,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="ndate != null" >
+        ndate,
+      </if>
+      <if test="empFk != null" >
+        emp_fk,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="nid != null" >
+        #{nid,jdbcType=INTEGER},
+      </if>
+      <if test="ntitle != null" >
+        #{ntitle,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="ndate != null" >
+        #{ndate,jdbcType=DATE},
+      </if>
+      <if test="empFk != null" >
+        #{empFk,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+
+  <select id="showNotices" resultMap="BaseResultMap">
+    select * from notice order by nid desc
+  </select>
+
+  <insert id="insertNotice">
+    insert into notice (ntitle, remark, ndate) value (#{ntitle},#{remark},#{ndate})
+  </insert>
+
+</mapper>

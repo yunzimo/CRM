@@ -1,26 +1,36 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%
+	String path=request.getScheme()+"://"+request.getServerName()+":"+
+			request.getServerPort()+request.getContextPath()+"/";
+	pageContext.setAttribute("path", path);
+%>
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
 <title>main</title>
 <base target="_self">
-<link rel="stylesheet" type="text/css" href="skin/css/base.css" />
-<link rel="stylesheet" type="text/css" href="skin/css/main.css" />
+<link rel="stylesheet" type="text/css" href="${path}/skin/css/base.css" />
+<link rel="stylesheet" type="text/css" href="${path}/skin/css/main.css" />
+	<script type="text/javascript" src="${path}/js/jquery-2.1.1.min.js"></script>
 </head>
 <body leftmargin="8" topmargin='8'>
 	<table width="98%" border="0" align="center" cellpadding="0"
 		cellspacing="0">
 		<tr>
 			<td><div style='float: left'>
-					<img height="14" src="skin/images/frame/book1.gif" width="20" />&nbsp;欢迎使用项目平台管理系统
+					<img height="14" src="${path}/skin/images/frame/book1.gif" width="20" />&nbsp;欢迎使用项目平台管理系统
 				</div>
 				<div style='float: right; padding-right: 8px;'>
 					<!--  //保留接口  -->
 				</div></td>
 		</tr>
 		<tr>
-			<td height="1" background="skin/images/frame/sp_bg.gif"
+			<td height="1" background="${path}/skin/images/frame/sp_bg.gif"
 				style='padding: 0px'></td>
 		</tr>
 	</table>
@@ -28,7 +38,7 @@
     <table width="98%" align="center" border="0" cellpadding="4"
 		cellspacing="1" bgcolor="#CBD8AC" style="margin-bottom: 8px">
 		<tr>
-			<td colspan="2" background="skin/images/frame/wbg.gif"
+			<td colspan="2" background="${path}/skin/images/frame/wbg.gif"
 				bgcolor="#EEF4EA" class='title'>
 				<div style='float: left'>
 					<span>快捷操作</span>
@@ -41,10 +51,10 @@
 					width="100%" border="0" cellspacing="1" cellpadding="1">
 					<tr>
 						<td width="15%" height="31" align="center"><img
-							src="skin/images/frame/qc.gif" width="90" height="30" /></td>
+							src="${path}/skin/images/frame/qc.gif" width="90" height="30" /></td>
 						<td width="85%" valign="bottom"><div class='icoitem'>
 								<div class='ico'>
-									<img src='skin/images/frame/addnews.gif' width='16' height='16' />
+									<img src='${path}/skin/images/frame/addnews.gif' width='16' height='16' />
 								</div>
 								<div class='txt'>
 									<a href='project-base.html'><u>查看项目信息</u></a>
@@ -52,7 +62,7 @@
 							</div>
 							<div class='icoitem'>
 								<div class='ico'>
-									<img src='skin/images/frame/menuarrow.gif' width='16'
+									<img src='${path}/skin/images/frame/menuarrow.gif' width='16'
 										height='16' />
 								</div>
 								<div class='txt'>
@@ -61,7 +71,7 @@
 							</div>
 							<div class='icoitem'>
 								<div class='ico'>
-									<img src='skin/images/frame/manage1.gif' width='16' height='16' />
+									<img src='${path}/skin/images/frame/manage1.gif' width='16' height='16' />
 								</div>
 								<div class='txt'>
 									<a href='task-add.html'><u>发布任务</u></a>
@@ -69,7 +79,7 @@
 							</div>
 							<div class='icoitem'>
 								<div class='ico'>
-									<img src='skin/images/frame/file_dir.gif' width='16'
+									<img src='${path}/skin/images/frame/file_dir.gif' width='16'
 										height='16' />
 								</div>
 								<div class='txt'>
@@ -78,7 +88,7 @@
 							</div>
 							<div class='icoitem'>
 								<div class='ico'>
-									<img src='skin/images/frame/part-index.gif' width='16'
+									<img src='${path}/skin/images/frame/part-index.gif' width='16'
 										height='16' />
 								</div>
 								<div class='txt'>
@@ -87,7 +97,7 @@
 							</div>
 							<div class='icoitem'>
 								<div class='ico'>
-									<img src='skin/images/frame/manage1.gif' width='16' height='16' />
+									<img src='${path}/skin/images/frame/manage1.gif' width='16' height='16' />
 								</div>
 								<div class='txt'>
 									<a href='modpassword.html'><u>修改密码</u></a>
@@ -104,7 +114,7 @@
 		cellspacing="1" bgcolor="#CBD8AC"
 		style="margin-bottom: 8px; margin-top: 8px;">
 		<tr>
-			<td background="skin/images/frame/wbg.gif" bgcolor="#EEF4EA"
+			<td background="${path}/skin/images/frame/wbg.gif" bgcolor="#EEF4EA"
 				class='title'><span>待完成任务</span></td>
 		</tr>
 		<tr bgcolor="#FFFFFF">
@@ -119,7 +129,7 @@
 		cellspacing="1" bgcolor="#CBD8AC"
 		style="margin-bottom: 8px; margin-top: 8px;">
 		<tr>
-			<td background="skin/images/frame/wbg.gif" bgcolor="#EEF4EA"
+			<td background="${path}/skin/images/frame/wbg.gif" bgcolor="#EEF4EA"
 				class='title'><span>未读消息</span></td>
 		</tr>
 		<tr bgcolor="#FFFFFF">
@@ -135,23 +145,23 @@
 		cellspacing="1" bgcolor="#CBD8AC"
 		style="margin-bottom: 8px; margin-top: 8px;">
 		<tr>
-			<td background="skin/images/frame/wbg.gif" bgcolor="#EEF4EA"
+			<td background="${path}/skin/images/frame/wbg.gif" bgcolor="#EEF4EA"
 				class='title'><span>通知公告</span></td>
 		</tr>
 		<tr bgcolor="#FFFFFF">
 			<td>
-				<ul class="notice-list">
-					<li class="ue-clear">
-					<span>12-15</span>&nbsp;&nbsp;&nbsp;<a href="#"class="notice-title">中国移动关于设立作风建设监督举报电话的公告</a>	
-					</li>
-					<p>
-					<li class="ue-clear">
-					<span>12-15</span>&nbsp;&nbsp;&nbsp;<a href="#"class="notice-title">中国移动关于设立作风建设监督举报电话的公告</a>	
-					</li>
-					<p>
-					<li class="ue-clear">
-					<span>12-15</span>&nbsp;&nbsp;&nbsp;<a href="#"class="notice-title">中国移动关于设立作风建设监督举报电话的公告</a>	
-					</li>
+				<ul class="notice-list" id="notice-list">
+<%--					<li class="ue-clear">--%>
+<%--					<span>12-15</span>&nbsp;&nbsp;&nbsp;<a href="#"class="notice-title">中国移动关于设立作风建设监督举报电话的公告</a>	--%>
+<%--					</li>--%>
+<%--					<p>--%>
+<%--					<li class="ue-clear">--%>
+<%--					<span>12-15</span>&nbsp;&nbsp;&nbsp;<a href="#"class="notice-title">中国移动关于设立作风建设监督举报电话的公告</a>	--%>
+<%--					</li>--%>
+<%--					<p>--%>
+<%--					<li class="ue-clear">--%>
+<%--					<span>12-15</span>&nbsp;&nbsp;&nbsp;<a href="#"class="notice-title">中国移动关于设立作风建设监督举报电话的公告</a>	--%>
+<%--					</li>--%>
 				</ul>
 			</td>
 		</tr>
@@ -161,7 +171,7 @@
 		cellspacing="1" bgcolor="#CBD8AC"
 		style="margin-bottom: 8px; margin-top: 8px;">
 		<tr>
-			<td background="skin/images/frame/wbg.gif" bgcolor="#EEF4EA"
+			<td background="${path}/skin/images/frame/wbg.gif" bgcolor="#EEF4EA"
 				class='title'><span>员工论坛</span></td>
 		</tr>
 		<tr bgcolor="#FFFFFF">
@@ -193,3 +203,25 @@
 
 </body>
 </html>
+
+<script type="text/javascript">
+	$(function () {
+		$.ajax({
+			url:'${path}notice/showNotices',
+			type:'post',
+			dataType:'json',
+			success:function (rs) {
+				$(rs.list).each(function (index,item) {
+					var dateInfo=new Date(item.ndate);
+					var ndate=dateInfo.getFullYear()+"-"+(dateInfo.getMonth()+1)+"-"+dateInfo.getDate();
+
+					var li="\t\t\t\t\t<li class=\"ue-clear\">\n" +
+							"\t\t\t\t\t<span>"+ndate+"</span>&nbsp;&nbsp;&nbsp;<a href=\"#\"class=\"notice-title\">"+item.ntitle+"</a>\t\n" +
+							"\t\t\t\t\t</li>";
+
+					$("#notice-list").append(li);
+				})
+			}
+		})
+	})
+</script>
